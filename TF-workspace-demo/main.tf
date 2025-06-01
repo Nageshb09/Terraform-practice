@@ -1,7 +1,7 @@
 /*
 module "VM" {
     source = "./modules/VM"
-    rgname = "NaveenRG"
+    rgname = lookup(var.rgname,terraform.workspace,"stagerg")
     rglocation = "East US"
     vnetname = "NaveenVnet"
     vnetaddrspace = [ "10.0.0.0/16" ]
@@ -11,7 +11,7 @@ module "VM" {
     ipallocation = "Dynamic"
     ipconfigname = "config"
     vmname = "NaveenVM"
-    vmsize = "Standard_F2"
+    vmsize = lookup(var.vmsize,terraform.workspace,"Standard_B1s")
     computer_name = "Naveen"
     admin_username = "Naveen"
     admin_password = "N@veen123"
@@ -29,16 +29,16 @@ module "VM" {
     publicIpName = "NaveenPublicIp"
     publicIp_allocation_method = "Dynamic"
 }
-
+*/
 module "StorageAccount" {
     source = "./modules/StorageAccount"
-    resource_group_name = "storageaccountRG"
+    rgname = lookup(var.rgname,terraform.workspace,"stagerg")
     resource_group_location = "eastus"
-    storage_account_name = "storagdemoe"
+    storage_account_name = lookup(var.storage_account_name,terraform.workspace,"stagestorageaccountt")
     storage_container_name = "containerrreeew"
   
-}*/
-
+}
+/*
 module "KeyVault" {
     source = "./modules/KeyVault"
     keyvault_name = "demokeyvault1122332321"
@@ -51,3 +51,4 @@ module "KeyVault" {
     keyvault_secret_name = "secretkeyvalue"
     keyvault_secret_value = "abcdefghi"
 }
+*/
