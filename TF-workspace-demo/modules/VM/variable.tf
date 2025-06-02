@@ -50,8 +50,7 @@ variable "vmname" {
 
 variable "vmsize" {
     description = "provide ip size"
-    type = string
-     
+    type = string   
 }
 
 variable "admin_password" {
